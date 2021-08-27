@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
 
   #facrory botが存在するかのテストです
   # it 'has a valid factory bot' do
-  #   is_expected.to be_valid
+  #   expect(build(:user)).to be_valid
   # end
 
   describe 'pass validation' do
