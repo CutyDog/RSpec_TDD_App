@@ -45,3 +45,12 @@ config.generators do |g|
     routing_specs: false
 end
 ```
+
+# Devise gem
+
+* Terminal
+```
+rails g devise:install
+rails g devise user
+rails db:migrate
+```
