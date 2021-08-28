@@ -15,10 +15,11 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_length_of(:email).is_at_most(250) }
 
     it 'that email should be unique (sensitive)' do
-      User.create!(name: "Sample", email: "sample@email.com", password: "sample")
-      user = User.new(name: "Other", email: "SamplE@email.com", password: "other")
-      user.valid?
-      expect(user.errors[:email]).to include("has already been taken")
+      user = FactoryBot.create(:user)
+      duplicate_user = user.dup
+      duplicate_user.email = user.email.upcase
+      duplicate_user.valid?
+      expect(duplicate_user.errors[:email]).to include("has already been taken")
     end
   end
 
